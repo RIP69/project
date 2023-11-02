@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover ; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; /* Keep the background fixed */
+        }
+        
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+        }
+        .rudra {
+            padding: 20px;
+        }
+        
+        .homepage {
+            background: rgba(0, 0, 0, 0.174);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .homepage h1 {
+            color: rgb(249, 3, 3);
+        }
+        
+        .homepage p {
+            color: rgb(250, 5, 5);
+        }
+        .login-box {
+            width: 400px;
+            padding: 40px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.367);
+            text-align: center;
+            border-radius: 10px;
+        }
+        
+        h2 {
+            margin: 0 0 20px;
+            color: white;
+        }
+        
+        .textbox {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .textbox input {
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid white;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .textbox input::placeholder {
+            color: white;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background: #850601;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        
+        .btn:hover {
+            background: #c9302c;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #03000000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ff0000;
+            padding: 10px;
+            margin: 0 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #000000c0;
+            border-radius: 5px;
+        }
+        
+    </style>
+    <title>Wine Shop Login</title>
+</head>
+
+<body>
+    <div class="rudra">
+        <div class="homepage">
+            <img src="drinks.png" alt="Al Habibi Logo" style="width: 50px; height: 50px;">
+            <h1>Al Habibi Hilarity & Wine Haven</h1>
+            <p>Al Habibi, Mod Khabi ki </p>
+        </div>
+        
+    <div class="navbar">
+        <a href="HOME.html">Home</a>
+        <a href="#featured-products">Featured Products</a>
+        <a href="#customer-reviews">Customer Reviews</a>
+        <a href="cart.html">My Cart</a>
+    </div>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="textbox">
+                    <input type="text" placeholder="Username" id="username" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" placeholder="Password" id="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p style="color: #ff0000;">haven't Registered?<a href="register.html" style="color: #ff0800;" >Register</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+        
+            // Retrieve username and password
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+        
+            // Perform a strong password check (e.g., at least 8 characters with a mix of letters, numbers, and symbols)
+            const strongPasswordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        
+            if (!strongPasswordRegex.test(password)) {
+                alert('Password must be at least 8 characters long and contain at least one letter, one number, and one special character.');
+                return;
+            }
+        
+            // Additional login logic goes here (e.g., sending data to a server for authentication)
+            alert('Login successful!'); // Replace with actual login logic
+        
+            // Redirect to the homepage
+            window.location.href = 'HOME.html'; // Adjust the URL to your homepage
+        });
+        
+    </script>
+</body>
+
+</html>
